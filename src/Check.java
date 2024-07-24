@@ -13,7 +13,7 @@ public class Check {
             if (str2.contains("\"")) throw new Exception("Для умножения и деления необходимо указать число");
         }
 
-        if (isNumeric(str2) == true) {
+        if (isNumeric(str2)) {
             int i = Integer.parseInt(str2);
             if (1 > i || i > 10) {
                 throw new Exception("Число должно быть от 1 до 10");
