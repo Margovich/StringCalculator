@@ -54,7 +54,7 @@ public class Calculate {
 
                     int index = str1.indexOf(str2);
                     if (index == -1) {
-                        String result = str1;
+                        String result = str1; dsdsdsds
                         return cut(result);
                     } else {
                         String result = str1.substring(0, index);
