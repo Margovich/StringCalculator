@@ -35,6 +35,7 @@ public class Calculate {
         str2 = str2.replaceAll("\"", "").trim();
         String quot = "\"";
 
+
         switch (sign) {
             case "+":
                 if (str2Beginning.equals(quot) & str2End.equals(quot)) {
@@ -50,13 +51,23 @@ public class Calculate {
 
             case "-":
                 if (str2Beginning.equals(quot) & str2End.equals(quot)) {
-                    String result = str1.replace(str2, "").trim();
-                    return cut(result);
+
+                    int index = str1.indexOf(str2);
+                    if (index == -1) {
+                        String result = str1;
+                        return cut(result);
+                    } else {
+                        String result = str1.substring(0, index);
+                        result = result + str1.substring(index + str2.length());
+                        return cut(result);
+
+                    }
                 } else if (!str2Beginning.equals("\"") | !str2End.equals("\"")) {
                     if (str2.matches("\\d")) {
                         throw new IllegalArgumentException("Для вычитания необходимо указать строку");
                     } else {
                         throw new IllegalArgumentException("Укажите второе выражение в кавычках");
+
                     }
                 }
 
